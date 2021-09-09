@@ -1,24 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import { Provider } from "jotai";
+import { Input } from "./componets/input";
+import { Message } from "./componets/message";
+import styles from "./App.module.css";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider>
+      <div className={styles.container}>
+        <Input path="text" type="text" />
+        <Message path="text" />
+
+        <br />
+        <Input path="number" type="number" />
+        <Message path="number" />
+
+        <br />
+        <Input path="complex.a[0].b" type="text" />
+        <Message path="complex.a[0].b" />
+      </div>
+    </Provider>
   );
 }
 
